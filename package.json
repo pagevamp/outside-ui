@@ -1,14 +1,20 @@
 {
-  "name": "farm-app",
-  "version": "1.0.0",
+  "name": "outside-ui",
+  "version": "1.0.2",
   "scripts": {
     "dev": "farm start",
     "start": "farm start",
     "build": "farm build",
+    "prebuild": "bun run build.ts",
     "preview": "farm preview",
-    "clean": "farm clean"
+    "clean": "farm clean",
+    "build:types": "tsc -d --preserveModules false"
   },
+  "files": [
+    "dist/modules"
+  ],
   "devDependencies": {
+    "@biomejs/biome": "^2.1.2",
     "@farmfe/cli": "^1.0.4",
     "@farmfe/core": "^1.6.7",
     "@farmfe/js-plugin-dts": "^0.6.5",
@@ -18,9 +24,10 @@
     "@types/qs": "^6.14.0",
     "@types/react": ">=19.1.8",
     "@types/react-dom": ">=19.1.6",
-    "@biomejs/biome": "^2.1.2",
+    "bun-plugin-dtsx": "^0.9.5",
     "core-js": "^3.36.1",
-    "react-refresh": "^0.14.0"
+    "react-refresh": "^0.14.0",
+    "typescript": "^5.8.3"
   },
   "peerDependencies": {
     "clsx": "^2.1.1",
