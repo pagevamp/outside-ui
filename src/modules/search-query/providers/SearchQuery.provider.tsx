@@ -1,8 +1,6 @@
 "use client";
 
 import { debounce, isEqual, omit } from "lodash";
-import { setSearchParams } from "modules/common/utils/setSearchParams";
-import { SortOrderEnum } from "modules/search-query/types/SortOrder";
 import { parse } from "qs";
 import {
   type ReactNode,
@@ -11,6 +9,8 @@ import {
   useState,
   useTransition,
 } from "react";
+import { setSearchParams } from "../../common/utils/setSearchParams";
+import { SortOrderEnum } from "../types/SortOrder";
 import {
   DEFAULT_SEARCH_KEY,
   type ICustomFilter,

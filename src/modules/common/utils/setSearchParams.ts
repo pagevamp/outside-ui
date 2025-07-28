@@ -5,7 +5,7 @@ type Options = {
 export function setSearchParams(paramsToSet: object, options?: Options) {
   const url = new URL(window.location.href);
 
-  const currentParams = Object.fromEntries(url.searchParams.entries());
+  const currentParams = JSON.parse(url.searchParams.toString());
 
   // Merge currentParams with paramsToSet and ensure URL-friendly formatting
   const updatedParams = Object.fromEntries(
@@ -16,10 +16,15 @@ export function setSearchParams(paramsToSet: object, options?: Options) {
 
   // Manually build the query string
   const newQueryString = Object.entries(updatedParams)
-    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`)
+    .map(
+      ([key, value]) =>
+        `${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`,
+    )
     .join("&");
 
-  const fn = options?.pushToHistory ? window.history.pushState : window.history.replaceState;
+  const fn = options?.pushToHistory
+    ? window.history.pushState
+    : window.history.replaceState;
 
   fn({}, "", url.pathname + "?" + newQueryString);
 }

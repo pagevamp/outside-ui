@@ -1,4 +1,4 @@
-import type { ColumnDefinition } from "modules/data-table/types/type";
+import type { ColumnDefinition } from "../types/type";
 
 export function TableColumn<TData extends Record<string, unknown>>(
   _props: ColumnDefinition<TData>,

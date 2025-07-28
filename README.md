@@ -1,23 +1,37 @@
-# Rslib project
+# Farm + React
+
+This template should help you start developing using React and TypeScript in Farm.
 
 ## Setup
 
 Install the dependencies:
 
 ```bash
-bun install
+pnpm install
 ```
 
-## Get started
+## Get Started
 
-Build the library:
+Start the dev server:
 
 ```bash
-bun build
+pnpm start
 ```
 
-Build the library in watch mode:
+Build the app for production:
 
 ```bash
-bun dev
+pnpm build
+```
+
+Preview the Production build product:
+
+```bash
+pnpm preview
+```
+
+Clear persistent cache local files
+
+```bash
+pnpm clean
 ```

@@ -1,7 +1,7 @@
 "use client";
 
-import type { SortOrderEnum } from "modules/search-query/types/SortOrder";
 import { type ChangeEvent, createContext } from "react";
+import type { SortOrderEnum } from "../types/SortOrder";
 
 export type ICustomFilter = Record<string, unknown>;
 
