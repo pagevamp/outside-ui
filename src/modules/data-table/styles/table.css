@@ -1,0 +1,52 @@
+@layer base {
+  .outside-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+      background-color: #f9fafb;
+      text-transform: capitalize;
+    }
+
+    th,
+    td {
+      padding: 0.75rem;
+      border-bottom: 1px solid #e5e7eb;
+      white-space: break-spaces;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    th {
+      font-weight: 600;
+      font-size: 0.875rem;
+
+      &.sortable {
+        cursor: pointer;
+      }
+
+      .heading-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-transform: uppercase;
+      }
+
+      .sort-icon {
+        scale: 2;
+
+        &.is-asc {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    td {
+      font-size: 0.875rem;
+    }
+
+    tr:hover {
+      background-color: #f3f4f6;
+    }
+  }
+}

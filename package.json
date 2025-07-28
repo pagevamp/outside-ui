@@ -1,0 +1,83 @@
+{
+  "name": "outside-ui",
+  "version": "1.0.0",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rslib build",
+    "postbuild": "bun scripts/postbuild.ts",
+    "build:storybook": "storybook build",
+    "check": "biome check --write",
+    "dev": "rslib build --watch",
+    "format": "biome format --write",
+    "storybook": "storybook dev",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.1.2",
+    "@rsbuild/core": "~1.4.11",
+    "@rsbuild/plugin-react": "^1.3.4",
+    "@rslib/core": "^0.11.0",
+    "@storybook/addon-docs": "^9.0.18",
+    "@storybook/addon-essentials": "8.6.14",
+    "@storybook/addon-interactions": "8.6.14",
+    "@storybook/addon-links": "^9.0.18",
+    "@storybook/addon-onboarding": "^9.0.18",
+    "@storybook/blocks": "8.6.14",
+    "@storybook/react": "^9.0.18",
+    "@storybook/test": "8.6.14",
+    "@tanstack/react-table": "^8.21.3",
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/react": "^16.3.0",
+    "@types/bun": "^1.2.19",
+    "@types/lodash": "^4.17.20",
+    "@types/qs": "^6.14.0",
+    "@types/react": "^19.1.8",
+    "@typescript/native-preview": "^7.0.0-dev.20250728.1",
+    "jsdom": "^26.1.0",
+    "react": "^19.1.0",
+    "storybook": "^9.0.18",
+    "storybook-addon-rslib": "^2.0.2",
+    "storybook-react-rsbuild": "^2.0.2",
+    "vitest": "^3.2.4"
+  },
+  "peerDependencies": {
+    "clsx": "^2.1.1",
+    "http-status-codes": "^2.3.0",
+    "lodash": "^4.17.21",
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "optionalDependencies": {
+    "tailwindcss": "^4.1.11",
+    "qs": "^6.14.0",
+    "zod": "^4.0.10"
+  },
+  "private": true,
+  "dependencies": {},
+  "exports": {
+    "./modules/common/utils/checkUrlQuery": "./dist/modules/common/utils/checkUrlQuery.js",
+    "./modules/common/utils/getClassNames": "./dist/modules/common/utils/getClassNames.js",
+    "./modules/common/utils/isUuid": "./dist/modules/common/utils/isUuid.js",
+    "./modules/common/utils/setSearchParams": "./dist/modules/common/utils/setSearchParams.js",
+    "./modules/common/errors/ApiErrorResponse": "./dist/modules/common/errors/ApiErrorResponse.js",
+    "./modules/common/errors/NotFoundError": "./dist/modules/common/errors/NotFoundError.js",
+    "./modules/common/errors/UnauthorizedError": "./dist/modules/common/errors/UnauthorizedError.js",
+    "./modules/common/errors/ValidationError": "./dist/modules/common/errors/ValidationError.js",
+    "./modules/common/schemas/booleanQuery": "./dist/modules/common/schemas/booleanQuery.js",
+    "./modules/data-table/components/data-table": "./dist/modules/data-table/components/data-table.js",
+    "./modules/data-table/components/table-column": "./dist/modules/data-table/components/table-column.js",
+    "./modules/data-table/styles/table": "./dist/modules/data-table/styles/table.css",
+    "./modules/data-table/types/type": "./dist/modules/data-table/types/type.js",
+    "./modules/search-query/types/sort-order": "./dist/modules/search-query/types/sort-order.js",
+    "./modules/search-query/utils/createQuerySchema": "./dist/modules/search-query/utils/createQuerySchema.js",
+    "./modules/search-query/utils/getPaginationSummary": "./dist/modules/search-query/utils/getPaginationSummary.js",
+    "./modules/search-query/utils/getValidatedQueryOrThrowError": "./dist/modules/search-query/utils/getValidatedQueryOrThrowError.js",
+    "./modules/search-query/utils/getValidSearchParams": "./dist/modules/search-query/utils/getValidSearchParams.js",
+    "./modules/search-query/providers": "./dist/modules/search-query/providers.js",
+    "./search-query/providers": "./dist/modules/search-query/providers.js"
+  }
+}
