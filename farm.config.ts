@@ -1,4 +1,4 @@
-import { readdirSync } from "node:fs";
+import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { defineConfig } from "@farmfe/core";
 import farmDtsPlugin from "@farmfe/js-plugin-dts";
@@ -20,12 +20,36 @@ function getModuleEntries() {
   return allEntries;
 }
 
+function updatePackageJsonExports(allEntries: Record<string, string>) {
+  const pkgPath = resolve(__dirname, "package.json");
+  const pkgJson = JSON.parse(readFileSync(pkgPath, "utf-8"));
+
+  const exportsField: Record<string, any> = {};
+  for (const entry of Object.keys(allEntries)) {
+    const modName = entry.replace(/^modules\//, "").replace(/\/index$/, "");
+    exportsField[`./${modName}`] = {
+      import: `./dist/${entry}.js`,
+      types: `./dist/${entry}.d.ts`,
+    };
+  }
+
+  pkgJson.exports = {
+    ...(pkgJson.exports || {}),
+    ...exportsField,
+  };
+
+  writeFileSync(pkgPath, JSON.stringify(pkgJson, null, 2) + "\n");
+}
+
+const allEntries = getModuleEntries();
+updatePackageJsonExports(allEntries);
+
 export default defineConfig({
   plugins: ["@farmfe/plugin-react", farmDtsPlugin({})],
   compilation: {
     persistentCache: true,
     input: {
-      ...getModuleEntries(),
+      ...allEntries,
       index: "index.html",
     },
     output: {

@@ -1,6 +1,6 @@
 {
   "name": "outside-ui",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "scripts": {
     "dev": "farm start",
     "start": "farm start",
@@ -10,9 +10,6 @@
     "clean": "farm clean",
     "build:types": "tsc -d --preserveModules false"
   },
-  "files": [
-    "dist/modules"
-  ],
   "devDependencies": {
     "@biomejs/biome": "^2.1.2",
     "@farmfe/cli": "^1.0.4",
@@ -40,5 +37,27 @@
     "tailwindcss": "^4.1.11",
     "qs": "^6.14.0",
     "zod": "^4.0.10"
+  },
+  "exports": {
+    "./common": {
+      "import": "./dist/modules/common/index.js",
+      "types": "./dist/modules/common/index.d.ts"
+    },
+    "./data-table": {
+      "import": "./dist/modules/data-table/index.js",
+      "types": "./dist/modules/data-table/index.d.ts"
+    },
+    "./errors": {
+      "import": "./dist/modules/errors/index.js",
+      "types": "./dist/modules/errors/index.d.ts"
+    },
+    "./search-query": {
+      "import": "./dist/modules/search-query/index.js",
+      "types": "./dist/modules/search-query/index.d.ts"
+    },
+    "./zod-schemas": {
+      "import": "./dist/modules/zod-schemas/index.js",
+      "types": "./dist/modules/zod-schemas/index.d.ts"
+    }
   }
 }
