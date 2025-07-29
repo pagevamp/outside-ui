@@ -1,11 +1,11 @@
 {
   "name": "outside-ui",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "scripts": {
     "dev": "farm start",
     "start": "farm start",
     "build": "farm build",
-    "prebuild": "bun run build.ts && tsc",
+    "prebuild": "bun run build.ts",
     "preview": "farm preview",
     "clean": "farm clean",
     "tsc": "APP_ENV=production node ./node_modules/typescript/bin/tsc --skipLibCheck",
@@ -25,6 +25,7 @@
     "bun-plugin-dtsx": "^0.9.5",
     "core-js": "^3.36.1",
     "react-refresh": "^0.14.0",
+    "tsc-alias": "^1.8.16",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {

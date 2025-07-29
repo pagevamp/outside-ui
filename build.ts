@@ -60,6 +60,11 @@ function updatePackageJsonExports(allEntries: Record<string, string>) {
   writeFileSync(pkgPath, JSON.stringify(pkgJson, null, 2) + "\n");
 }
 
-getModuleEntries().then((entries) => {
+getModuleEntries().then(async (entries) => {
+  Bun.spawn({
+    cmd: ["bun", "x", "tsc-alias", "-p", "tsconfig.json"],
+    stdout: "inherit",
+    stderr: "inherit",
+  });
   updatePackageJsonExports(entries);
 });
