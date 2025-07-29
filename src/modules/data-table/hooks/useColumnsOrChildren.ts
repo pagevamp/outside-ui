@@ -1,6 +1,10 @@
+import { TableColumn } from "modules/data-table/components/TableColumn";
+import type {
+  ColumnDefinition,
+  RowData,
+  TableChildren,
+} from "modules/data-table/types/type";
 import { Children, isValidElement, type ReactElement, useMemo } from "react";
-import { TableColumn } from "../components/TableColumn";
-import type { ColumnDefinition, RowData, TableChildren } from "../types/type";
 
 type Props<TData extends RowData> = {
   children?: TableChildren<TData> | TableChildren<TData>[];

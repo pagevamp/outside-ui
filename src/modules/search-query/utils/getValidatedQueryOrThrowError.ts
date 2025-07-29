@@ -1,7 +1,7 @@
 import { StatusCodes } from "http-status-codes";
+import { checkUrlQuery } from "modules/common/utils/checkUrlQuery";
+import { ApiErrorResponse } from "modules/errors/ApiErrorResponse";
 import type { ZodObject, z } from "zod/v4";
-import { checkUrlQuery } from "../../common/utils/checkUrlQuery";
-import { ApiErrorResponse } from "../../errors/ApiErrorResponse";
 
 export function getValidatedQueryOrThrowError<T extends ZodObject>(
   url: string,

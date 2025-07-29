@@ -1,5 +1,5 @@
+import { SortOrderEnum } from "modules/search-query/types/SortOrder";
 import { type ZodObject, z } from "zod/v4";
-import { SortOrderEnum } from "../types/SortOrder";
 
 type DefaultLimits = {
   minLimit?: number;

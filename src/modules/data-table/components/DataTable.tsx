@@ -1,7 +1,7 @@
 import clsx from "clsx";
+import { getClassNames } from "modules/common/utils/getClassNames";
+import { SortOrderEnum } from "modules/search-query/types/SortOrder";
 import type { ReactNode } from "react";
-import { getClassNames } from "../../common/utils/getClassNames";
-import { SortOrderEnum } from "../../search-query/types/SortOrder";
 import { useColumnsOrChildren } from "../hooks/useColumnsOrChildren";
 import type { ColumnDefinition, TableChildren } from "../types/type";
 
