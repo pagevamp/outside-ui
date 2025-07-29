@@ -1,8 +1,12 @@
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
+import * as path from "node:path";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const __dirname = fileURLToPath(new URL(".", import.meta.url));
+const __dirname = path.resolve(
+  fileURLToPath(new URL(".", import.meta.url)),
+  "../",
+);
 
 async function getModuleEntries() {
   const modulesDir = resolve(__dirname, "src/modules");
@@ -21,20 +25,11 @@ async function getModuleEntries() {
   await Bun.build({
     entrypoints: Object.values(allEntries),
     outdir: `lib/modules/`,
-    target: "node",
+    target: "browser",
     format: "esm",
-    minify: true,
+    minify: false,
     sourcemap: "external",
-    // plugins: [
-    //   dts({
-    //     // @ts-ignore
-    //     cwd: "./", // optional, default: process.cwd()
-    //     root: "./src", // optional, default: './src'
-    //     outdir: "./lib", // optional, default: './dist'
-    //     keepComments: true, // optional, default: true
-    //     tsconfigPath: "./tsconfig.json", // optional, default: './tsconfig.json'}
-    //   }),
-    // ],
+    external: ["react", "react-dom", "zod", "qs"],
   });
 
   return allEntries;
@@ -61,10 +56,5 @@ function updatePackageJsonExports(allEntries: Record<string, string>) {
 }
 
 getModuleEntries().then(async (entries) => {
-  Bun.spawn({
-    cmd: ["bun", "x", "tsc-alias", "-p", "tsconfig.json"],
-    stdout: "inherit",
-    stderr: "inherit",
-  });
   updatePackageJsonExports(entries);
 });

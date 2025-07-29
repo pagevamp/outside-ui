@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-import { Main } from "./main";
+import { Main } from "./main.tsx";
 import "./index.css";
 
 const container = document.querySelector("#root") as Element;

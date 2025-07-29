@@ -7,7 +7,6 @@ biome.json/
 .idea/
 scripts/
 tests/
-dist/
 .gitignore
-build.ts
+prebuild.ts
 farm.config.ts

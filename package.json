@@ -1,15 +1,14 @@
 {
   "name": "outside-ui",
-  "version": "1.0.24",
+  "version": "1.0.28",
   "scripts": {
     "dev": "farm start",
     "start": "farm start",
     "build": "farm build",
-    "prebuild": "bun run build.ts",
+    "postbuild": "bun run scripts/prebuild.ts && tsc && tsc-alias",
     "preview": "farm preview",
     "clean": "farm clean",
-    "tsc": "APP_ENV=production node ./node_modules/typescript/bin/tsc --skipLibCheck",
-    "build:types": "tsc"
+    "tsc": "APP_ENV=production node ./node_modules/typescript/bin/tsc --skipLibCheck"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.1.2",
@@ -24,6 +23,8 @@
     "@types/react-dom": ">=19.1.6",
     "bun-plugin-dtsx": "^0.9.5",
     "core-js": "^3.36.1",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "react-refresh": "^0.14.0",
     "tsc-alias": "^1.8.16",
     "typescript": "^5.8.3"
@@ -40,6 +41,8 @@
     "qs": "^6.14.0",
     "zod": "^4.0.10"
   },
+  "main": "./dist/modules/index.js",
+  "types": "./dist/modules/index.d.ts",
   "exports": {
     "./search-query": {
       "import": "./lib/modules/search-query/index.js",

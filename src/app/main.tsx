@@ -1,7 +1,7 @@
 import "./main.css";
 import FarmLogo from "./assets/logo.png";
 import reactLogo from "./assets/react.svg";
-import { DataTable } from "./modules/data-table";
+import { DataTable } from "modules/data-table";
 
 type User = {
   name: string;
