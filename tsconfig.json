@@ -16,13 +16,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "baseUrl": "./",
-    "paths": {
-      "@/*": ["./*"],
-      "src/*": ["./src/*"],
-      "modules/*": ["./src/modules/*"]
-    },
-
+    "baseUrl": "./src",
     "declaration": true,
     "emitDeclarationOnly": true,
     "declarationMap": true,

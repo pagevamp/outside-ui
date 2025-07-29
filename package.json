@@ -1,6 +1,6 @@
 {
   "name": "outside-ui",
-  "version": "1.0.9",
+  "version": "1.0.11",
   "scripts": {
     "dev": "farm start",
     "start": "farm start",

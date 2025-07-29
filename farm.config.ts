@@ -52,14 +52,13 @@ export default defineConfig({
   compilation: {
     resolve: {
       alias: {
-        "@": process.cwd(),
-        src: path.join(process.cwd(), "src"),
         modules: path.join(process.cwd(), "src/modules"),
       },
     },
-    persistentCache: true,
+    minify: false,
     input: {
-      ...allEntries,
+      // ...allEntries,
+      "modules/index": "./src/modules/index.ts",
       index: "index.html",
     },
     output: {
