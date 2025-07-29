@@ -1,7 +1,11 @@
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
+import * as path from "node:path";
 import { resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "@farmfe/core";
 import farmDtsPlugin from "@farmfe/js-plugin-dts";
+
+const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
 function getModuleEntries() {
   const modulesDir = resolve(__dirname, "src/modules");
@@ -47,6 +51,13 @@ updatePackageJsonExports(allEntries);
 export default defineConfig({
   plugins: ["@farmfe/plugin-react", farmDtsPlugin({})],
   compilation: {
+    resolve: {
+      alias: {
+        "@": process.cwd(),
+        src: path.join(process.cwd(), "src"),
+        modules: path.join(process.cwd(), "src/modules"),
+      },
+    },
     persistentCache: true,
     input: {
       ...allEntries,
