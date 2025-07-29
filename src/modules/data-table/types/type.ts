@@ -1,11 +1,11 @@
 // @ts-ignore
 import type { ReactElement, ReactNode } from "react";
 
-export type RowData = Record<string, unknown>;
+export type RowData = object;
 
 export type ColumnDefinition<TData extends RowData> = {
   header?: ReactNode;
-  accessor: Extract<keyof TData, string>;
+  accessor: Extract<keyof TData, string> | string;
   value?: ReactNode | ((row: TData) => ReactNode);
   columnClassName?: string;
   th?: string;

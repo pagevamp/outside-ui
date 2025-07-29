@@ -3,7 +3,7 @@ import {
   type ICustomFilter,
   type ISearchQueryContext,
   SearchQueryContext,
-} from "./search-query.context";
+} from "./search-query.context.ts";
 
 export function useSearchQuery<
   T extends ICustomFilter,

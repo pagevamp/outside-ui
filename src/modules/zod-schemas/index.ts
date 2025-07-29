@@ -1,1 +1,1 @@
-export * from "./query.boolean";
+export * from "./query.boolean.ts";

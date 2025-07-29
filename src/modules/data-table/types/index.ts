@@ -1,1 +1,1 @@
-export type { ColumnDefinition, RowData, TableChildren } from "./type";
+export type { ColumnDefinition, RowData, TableChildren } from "./type.ts";

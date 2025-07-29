@@ -1,6 +1,6 @@
 import { StatusCodes } from "http-status-codes";
 import { ZodError } from "zod/v4";
-import { ApiErrorResponse } from "./ApiErrorResponse";
+import { ApiErrorResponse } from "./ApiErrorResponse.ts";
 
 export class ValidationError extends ApiErrorResponse {
   public fieldErrors: Record<string, string> = {};

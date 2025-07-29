@@ -1,7 +1,7 @@
 "use client";
 
 import { type ChangeEvent, createContext } from "react";
-import type { SortOrderEnum } from "../types/SortOrder";
+import type { SortOrderEnum } from "../types/SortOrder.ts";
 
 export type ICustomFilter = Record<string, unknown>;
 

@@ -1,7 +1,19 @@
 import "./main.css";
 import FarmLogo from "./assets/logo.png";
 import reactLogo from "./assets/react.svg";
+import { DataTable } from "./modules/data-table";
 
+type User = {
+  name: string;
+  age: number;
+};
+
+const users: User[] = [
+  {
+    name: "Anit",
+    age: 32,
+  },
+];
 export function Main() {
   return (
     <>
@@ -22,6 +34,14 @@ export function Main() {
       <p className="read-the-docs">
         Click on the Farm and React logos to learn more
       </p>
+
+      <DataTable
+        data={users}
+        columns={[
+          { accessor: "name", value: (row) => row.name },
+          { accessor: "age" },
+        ]}
+      />
     </>
   );
 }

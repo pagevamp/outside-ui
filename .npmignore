@@ -6,6 +6,5 @@ biome.json/
 .storybook/
 .idea/
 scripts/
-dist/examples
-dist/types
 tests/
+dist/

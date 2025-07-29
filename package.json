@@ -1,11 +1,11 @@
 {
   "name": "outside-ui",
-  "version": "1.0.11",
+  "version": "1.0.16",
   "scripts": {
     "dev": "farm start",
     "start": "farm start",
     "build": "farm build",
-    "bun:build": "bun run build.ts",
+    "prebuild": "bun run build.ts",
     "preview": "farm preview",
     "clean": "farm clean",
     "tsc": "APP_ENV=production node ./node_modules/typescript/bin/tsc --skipLibCheck",
@@ -40,25 +40,25 @@
     "zod": "^4.0.10"
   },
   "exports": {
-    "./common": {
-      "import": "./dist/modules/common/index.js",
-      "types": "./dist/modules/common/index.d.ts"
-    },
-    "./data-table": {
-      "import": "./dist/modules/data-table/index.js",
-      "types": "./dist/modules/data-table/index.d.ts"
-    },
-    "./errors": {
-      "import": "./dist/modules/errors/index.js",
-      "types": "./dist/modules/errors/index.d.ts"
-    },
     "./search-query": {
-      "import": "./dist/modules/search-query/index.js",
-      "types": "./dist/modules/search-query/index.d.ts"
+      "import": "./lib/modules/search-query/index.js",
+      "types": "./lib/modules/search-query/index.d.ts"
     },
     "./zod-schemas": {
-      "import": "./dist/modules/zod-schemas/index.js",
-      "types": "./dist/modules/zod-schemas/index.d.ts"
+      "import": "./lib/modules/zod-schemas/index.js",
+      "types": "./lib/modules/zod-schemas/index.d.ts"
+    },
+    "./common": {
+      "import": "./lib/modules/common/index.js",
+      "types": "./lib/modules/common/index.d.ts"
+    },
+    "./errors": {
+      "import": "./lib/modules/errors/index.js",
+      "types": "./lib/modules/errors/index.d.ts"
+    },
+    "./data-table": {
+      "import": "./lib/modules/data-table/index.js",
+      "types": "./lib/modules/data-table/index.d.ts"
     }
   }
 }

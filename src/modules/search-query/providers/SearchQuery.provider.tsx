@@ -17,7 +17,7 @@ import {
   type ISearchQuery,
   type ISearchQueryContext,
   SearchQueryContext,
-} from "./search-query.context";
+} from "./search-query.context.ts";
 
 interface ProviderProps<T extends ICustomFilter> {
   defaultValues?: Partial<ISearchQuery<T>>;

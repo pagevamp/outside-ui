@@ -1,5 +1,5 @@
 import { StatusCodes } from "http-status-codes";
-import { type ApiErrorOptions, ApiErrorResponse } from "./ApiErrorResponse";
+import { type ApiErrorOptions, ApiErrorResponse } from "./ApiErrorResponse.ts";
 
 export class NotFoundError extends ApiErrorResponse {
   constructor(
