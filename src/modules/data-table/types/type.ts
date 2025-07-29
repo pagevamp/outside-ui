@@ -1,7 +1,7 @@
 // @ts-ignore
 import type { ReactElement, ReactNode } from "react";
 
-export type RowData = object;
+export type RowData = Record<string, unknown>;
 
 export type ColumnDefinition<TData extends RowData> = {
   header?: ReactNode;

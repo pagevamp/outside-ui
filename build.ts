@@ -1,7 +1,6 @@
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import dts from "bun-plugin-dtsx";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
@@ -22,20 +21,20 @@ async function getModuleEntries() {
   await Bun.build({
     entrypoints: Object.values(allEntries),
     outdir: `lib/modules/`,
-    target: "browser",
+    target: "node",
     format: "esm",
-    minify: false,
+    minify: true,
     sourcemap: "external",
-    plugins: [
-      dts({
-        // @ts-ignore
-        cwd: "./", // optional, default: process.cwd()
-        root: "./src", // optional, default: './src'
-        outdir: "./lib", // optional, default: './dist'
-        keepComments: true, // optional, default: true
-        tsconfigPath: "./tsconfig.json", // optional, default: './tsconfig.json'}
-      }),
-    ],
+    // plugins: [
+    //   dts({
+    //     // @ts-ignore
+    //     cwd: "./", // optional, default: process.cwd()
+    //     root: "./src", // optional, default: './src'
+    //     outdir: "./lib", // optional, default: './dist'
+    //     keepComments: true, // optional, default: true
+    //     tsconfigPath: "./tsconfig.json", // optional, default: './tsconfig.json'}
+    //   }),
+    // ],
   });
 
   return allEntries;

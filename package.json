@@ -1,15 +1,15 @@
 {
   "name": "outside-ui",
-  "version": "1.0.16",
+  "version": "1.0.021",
   "scripts": {
     "dev": "farm start",
     "start": "farm start",
     "build": "farm build",
-    "prebuild": "bun run build.ts",
+    "prebuild": "bun run build.ts && tsc",
     "preview": "farm preview",
     "clean": "farm clean",
     "tsc": "APP_ENV=production node ./node_modules/typescript/bin/tsc --skipLibCheck",
-    "build:types": "tsc -d --preserveModules false"
+    "build:types": "tsc"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.1.2",

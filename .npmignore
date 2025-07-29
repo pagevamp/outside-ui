@@ -8,3 +8,6 @@ biome.json/
 scripts/
 tests/
 dist/
+.gitignore
+build.ts
+farm.config.ts

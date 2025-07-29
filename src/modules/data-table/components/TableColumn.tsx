@@ -1,6 +1,6 @@
-import type { ColumnDefinition } from "modules/data-table/types/type";
+import type { ColumnDefinition, RowData } from "modules/data-table/types/type";
 
-export function TableColumn<TData extends Record<string, unknown>>(
+export function TableColumn<TData extends RowData>(
   _props: ColumnDefinition<TData>,
 ) {
   // const columnHelper = createColumnHelper<TData>();

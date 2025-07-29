@@ -1,7 +1,11 @@
 import clsx from "clsx";
 import { getClassNames } from "modules/common/utils/getClassNames";
 import { useColumnsOrChildren } from "modules/data-table/hooks/useColumnsOrChildren";
-import type { ColumnDefinition, TableChildren } from "modules/data-table/types";
+import type {
+  ColumnDefinition,
+  RowData,
+  TableChildren,
+} from "modules/data-table/types";
 import { SortOrderEnum } from "modules/search-query/types/SortOrder";
 import type { ReactNode } from "react";
 
@@ -16,7 +20,7 @@ type ClassNames = {
   td?: string;
 };
 
-type TableProps<TData extends Record<string, unknown>> = {
+type TableProps<TData extends RowData> = {
   data: TData[];
   className?: ClassNames | string;
   sortBy?: keyof TData;
@@ -30,7 +34,7 @@ type TableProps<TData extends Record<string, unknown>> = {
   | { columns: ColumnDefinition<TData>[] }
 );
 
-export function DataTable<TData extends Record<string, unknown>>({
+export function DataTable<TData extends RowData>({
   data,
   className,
   sortDir,

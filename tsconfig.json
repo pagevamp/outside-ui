@@ -19,9 +19,8 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "declarationMap": true,
-    "declarationDir": "dist",
-    "outDir": "./dist",
-    "rootDir": "./"
+    "declarationDir": "lib",
+    "rootDir": "./src"
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
