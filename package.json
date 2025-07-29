@@ -1,14 +1,12 @@
 {
   "name": "outside-ui",
-  "version": "1.0.0",
+  "version": "1.0.12",
   "type": "module",
-  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "rslib build",
-    "postbuild": "bun scripts/postbuild.ts",
     "build:storybook": "storybook build",
     "check": "biome check --write",
     "dev": "rslib build --watch",
@@ -56,28 +54,7 @@
     "qs": "^6.14.0",
     "zod": "^4.0.10"
   },
-  "private": true,
   "dependencies": {},
-  "exports": {
-    "./modules/common/utils/checkUrlQuery": "./dist/modules/common/utils/checkUrlQuery.js",
-    "./modules/common/utils/getClassNames": "./dist/modules/common/utils/getClassNames.js",
-    "./modules/common/utils/isUuid": "./dist/modules/common/utils/isUuid.js",
-    "./modules/common/utils/setSearchParams": "./dist/modules/common/utils/setSearchParams.js",
-    "./modules/common/errors/ApiErrorResponse": "./dist/modules/common/errors/ApiErrorResponse.js",
-    "./modules/common/errors/NotFoundError": "./dist/modules/common/errors/NotFoundError.js",
-    "./modules/common/errors/UnauthorizedError": "./dist/modules/common/errors/UnauthorizedError.js",
-    "./modules/common/errors/ValidationError": "./dist/modules/common/errors/ValidationError.js",
-    "./modules/common/schemas/booleanQuery": "./dist/modules/common/schemas/booleanQuery.js",
-    "./modules/data-table/components/data-table": "./dist/modules/data-table/components/data-table.js",
-    "./modules/data-table/components/table-column": "./dist/modules/data-table/components/table-column.js",
-    "./modules/data-table/styles/table": "./dist/modules/data-table/styles/table.css",
-    "./modules/data-table/types/type": "./dist/modules/data-table/types/type.js",
-    "./modules/search-query/types/sort-order": "./dist/modules/search-query/types/sort-order.js",
-    "./modules/search-query/utils/createQuerySchema": "./dist/modules/search-query/utils/createQuerySchema.js",
-    "./modules/search-query/utils/getPaginationSummary": "./dist/modules/search-query/utils/getPaginationSummary.js",
-    "./modules/search-query/utils/getValidatedQueryOrThrowError": "./dist/modules/search-query/utils/getValidatedQueryOrThrowError.js",
-    "./modules/search-query/utils/getValidSearchParams": "./dist/modules/search-query/utils/getValidSearchParams.js",
-    "./modules/search-query/providers": "./dist/modules/search-query/providers.js",
-    "./search-query/providers": "./dist/modules/search-query/providers.js"
-  }
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts"
 }

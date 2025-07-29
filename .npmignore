@@ -1,0 +1,11 @@
+src/
+examples/
+biome.json/
+./*.ts
+./*.md
+.storybook/
+.idea/
+scripts/
+dist/examples
+dist/types
+tests/

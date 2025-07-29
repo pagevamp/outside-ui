@@ -1,3 +1,4 @@
+// @ts-ignore
 import type { ReactElement, ReactNode } from "react";
 
 export type RowData = Record<string, unknown>;

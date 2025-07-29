@@ -41,7 +41,7 @@
         "http-status-codes": "^2.3.0",
         "lodash": "^4.17.21",
         "react": ">=16.9.0",
-        "react-dom": "^19.1.0",
+        "react-dom": ">=16.9.0",
       },
     },
   },
