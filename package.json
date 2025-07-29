@@ -8,6 +8,7 @@
     "bun:build": "bun run build.ts",
     "preview": "farm preview",
     "clean": "farm clean",
+    "tsc": "APP_ENV=production node ./node_modules/typescript/bin/tsc --skipLibCheck",
     "build:types": "tsc -d --preserveModules false"
   },
   "devDependencies": {
