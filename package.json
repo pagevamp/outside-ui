@@ -1,6 +1,6 @@
 {
   "name": "outside-ui",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "scripts": {
     "dev": "farm start",
     "start": "farm start",
@@ -39,23 +39,23 @@
     "zod": "^4.0.10"
   },
   "exports": {
-    "common": {
+    "./common": {
       "import": "./dist/modules/common/index.js",
       "types": "./dist/modules/common/index.d.ts"
     },
-    "data-table": {
+    "./data-table": {
       "import": "./dist/modules/data-table/index.js",
       "types": "./dist/modules/data-table/index.d.ts"
     },
-    "errors": {
+    "./errors": {
       "import": "./dist/modules/errors/index.js",
       "types": "./dist/modules/errors/index.d.ts"
     },
-    "search-query": {
+    "./search-query": {
       "import": "./dist/modules/search-query/index.js",
       "types": "./dist/modules/search-query/index.d.ts"
     },
-    "zod-schemas": {
+    "./zod-schemas": {
       "import": "./dist/modules/zod-schemas/index.js",
       "types": "./dist/modules/zod-schemas/index.d.ts"
     }

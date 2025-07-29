@@ -31,7 +31,7 @@ function updatePackageJsonExports(allEntries: Record<string, string>) {
   const exportsField: Record<string, any> = {};
   for (const entry of Object.keys(allEntries)) {
     const modName = entry.replace(/^modules\//, "").replace(/\/index$/, "");
-    exportsField[`${modName}`] = {
+    exportsField[`./${modName}`] = {
       import: `./dist/${entry}.js`,
       types: `./dist/${entry}.d.ts`,
     };
@@ -63,6 +63,7 @@ export default defineConfig({
       index: "index.html",
     },
     output: {
+      clean: true,
       targetEnv: "browser",
     },
   },
