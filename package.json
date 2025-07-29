@@ -1,6 +1,6 @@
 {
   "name": "outside-ui",
-  "version": "1.0.28",
+  "version": "1.0.30",
   "scripts": {
     "dev": "farm start",
     "start": "farm start",
@@ -22,6 +22,7 @@
     "@types/react": ">=19.1.8",
     "@types/react-dom": ">=19.1.6",
     "bun-plugin-dtsx": "^0.9.5",
+    "bun-style-loader": "^0.4.0",
     "core-js": "^3.36.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
@@ -41,8 +42,6 @@
     "qs": "^6.14.0",
     "zod": "^4.0.10"
   },
-  "main": "./dist/modules/index.js",
-  "types": "./dist/modules/index.d.ts",
   "exports": {
     "./search-query": {
       "import": "./lib/modules/search-query/index.js",
@@ -62,7 +61,8 @@
     },
     "./data-table": {
       "import": "./lib/modules/data-table/index.js",
-      "types": "./lib/modules/data-table/index.d.ts"
+      "types": "./lib/modules/data-table/index.d.ts",
+      "style": "./lib/modules/data-table/index.css"
     }
   }
 }

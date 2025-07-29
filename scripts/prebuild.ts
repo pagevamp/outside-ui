@@ -1,7 +1,8 @@
-import { readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import * as path from "node:path";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import styleLoader from "bun-style-loader";
 
 const __dirname = path.resolve(
   fileURLToPath(new URL(".", import.meta.url)),
@@ -30,6 +31,7 @@ async function getModuleEntries() {
     minify: false,
     sourcemap: "external",
     external: ["react", "react-dom", "zod", "qs"],
+    plugins: [styleLoader()],
   });
 
   return allEntries;
@@ -42,9 +44,15 @@ function updatePackageJsonExports(allEntries: Record<string, string>) {
   const exportsField: Record<string, any> = {};
   for (const entry of Object.keys(allEntries)) {
     const modName = entry.replace(/^modules\//, "").replace(/\/index$/, "");
+    const jsPath = `./lib/modules/${entry}/index.js`;
+    const dtsPath = `./lib/modules/${entry}/index.d.ts`;
+    const cssPath = `./lib/modules/${entry}/index.css`;
+    const styleExists = existsSync(resolve(__dirname, cssPath));
+
     exportsField[`./${modName}`] = {
-      import: `./lib/modules/${entry}/index.js`,
-      types: `./lib/modules/${entry}/index.d.ts`,
+      import: jsPath,
+      types: dtsPath,
+      ...(styleExists && { style: cssPath }),
     };
   }
 
