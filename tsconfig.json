@@ -20,7 +20,10 @@
     "emitDeclarationOnly": true,
     "declarationMap": true,
     "declarationDir": "lib",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "paths": {
+      "modules/*": ["./modules/*"]
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
