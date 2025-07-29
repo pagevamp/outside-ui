@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { getClassNames } from "modules/common/utils/getClassNames";
 import { useColumnsOrChildren } from "modules/data-table/hooks/useColumnsOrChildren";
+import "modules/data-table/styles/table.css";
 import type {
   ColumnDefinition,
   RowData,
