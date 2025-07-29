@@ -38,7 +38,6 @@ function updatePackageJsonExports(allEntries: Record<string, string>) {
   }
 
   pkgJson.exports = {
-    ...(pkgJson.exports || {}),
     ...exportsField,
   };
 
