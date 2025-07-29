@@ -5,7 +5,7 @@
     "dev": "farm start",
     "start": "farm start",
     "build": "farm build",
-    "prebuild": "bun run build.ts",
+    "bun:build": "bun run build.ts",
     "preview": "farm preview",
     "clean": "farm clean",
     "build:types": "tsc -d --preserveModules false"
