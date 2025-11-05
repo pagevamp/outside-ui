@@ -5,7 +5,7 @@ A react component library
 ## Installation
 
 ```bash
-bun add @anitshrsth/react-lib
+bun add @outside/rnt-lib
 ```
 
 ## Usage
