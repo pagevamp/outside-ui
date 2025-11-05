@@ -1,0 +1,28 @@
+{
+	"name": "web",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "bun -b next dev --turbopack",
+		"build": "bun -b next build --turbopack",
+		"start": "bun -b next start",
+		"tsc": "tsc --noemit"
+	},
+	"dependencies": {
+		"clsx": "catalog:",
+		"@rnt-lib/core": "workspace:*",
+		"next": "16.0.1",
+		"react": "catalog:",
+		"react-dom": "catalog:",
+		"zod": "catalog:"
+	},
+	"devDependencies": {
+		"typescript": "catalog:",
+		"@types/bun": "catalog:types",
+		"@types/node": "^22",
+		"@types/react": "catalog:types",
+		"@types/react-dom": "catalog:types",
+		"@tailwindcss/postcss": "^4.1.16",
+		"tailwindcss": "^4.1.16"
+	}
+}
