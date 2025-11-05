@@ -35,6 +35,9 @@
     "vite": "npm:rolldown-vite@latest",
     "vite-plugin-dts": "^4.5.4"
   },
+  "dependencies": {
+    "dialog-closedby-polyfill": "^1.1.0"
+  },
   "peerDependencies": {
     "clsx": "catalog:peer",
     "lodash": "catalog:peer",

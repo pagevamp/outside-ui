@@ -1,13 +1,13 @@
 "use client";
 
+import { setup } from "@rnt-lib/core";
 import {
 	isServer,
 	QueryClient,
 	QueryClientProvider,
 } from "@tanstack/react-query";
-
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import type { ReactNode } from "react";
+import { type ReactNode, useEffect } from "react";
 
 function makeQueryClient() {
 	return new QueryClient({
@@ -41,6 +41,9 @@ export function getQueryClient() {
 
 export function AppProvider({ children }: { children: ReactNode }) {
 	const queryClient = getQueryClient();
+	useEffect(() => {
+		setup();
+	}, []);
 
 	return (
 		<QueryClientProvider client={queryClient}>

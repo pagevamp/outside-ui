@@ -5,7 +5,6 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "bunup",
     "dev": "bun run -b --filter './apps/*' --filter './packages/*' dev",
     "dev:pkg": "bunup --watch",
     "lint": "ultracite check",

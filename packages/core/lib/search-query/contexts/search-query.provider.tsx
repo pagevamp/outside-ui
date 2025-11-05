@@ -4,33 +4,14 @@ import { useLazySearch } from "lib/lazy-search";
 import type { IBaseSearchQuery } from "lib/search-query/types";
 import { setSearchParams } from "lib/set-search-params";
 import isEqual from "lodash/isEqual";
-import { type ReactNode, useCallback, useEffect, useState, useTransition } from "react";
+import { type ReactNode, useCallback, useEffect, useState } from "react";
 import { SearchQueryContext } from "./search-query.context";
 
-interface ProviderProps<T extends Record<string, unknown>> {
-  defaultValues?: T;
+interface ProviderProps<T extends IBaseSearchQuery> {
+  defaultValues?: Partial<T>;
   children: ReactNode;
   initialSearchParams?: Partial<IBaseSearchQuery & T>;
   syncWithUrl?: boolean;
-}
-
-const ALLOWED_BASE_KEYS = new Set<string>(["page", "limit", "search", "sortBy", "sortOrder"]);
-
-function filterInitialSearchParams<T extends Record<string, unknown>>(
-  initial: Partial<T> | undefined,
-  defaults: Partial<T> | undefined
-): Partial<T> {
-  const out: Partial<T> = {};
-  if (!initial) {
-    return out;
-  }
-  const defaultKeys = defaults ? (Object.keys(defaults) as (keyof T)[]) : ([] as (keyof T)[]);
-  for (const key of Object.keys(initial) as (keyof T)[]) {
-    if (ALLOWED_BASE_KEYS.has(String(key)) || defaultKeys.includes(key)) {
-      out[key] = initial[key];
-    }
-  }
-  return out;
 }
 
 export function SearchQueryProvider<T extends IBaseSearchQuery>({
@@ -39,16 +20,12 @@ export function SearchQueryProvider<T extends IBaseSearchQuery>({
   defaultValues,
   syncWithUrl = false,
 }: ProviderProps<T>): ReactNode {
-  const initialFromDefaults = (defaultValues ?? {}) as T;
-  const filteredInitial = filterInitialSearchParams<T>(initialSearchParams, defaultValues);
   const [searchQuery, setSearchQuery] = useState<T>({
-    ...initialFromDefaults,
-    ...(filteredInitial as Partial<T>),
+    ...defaultValues,
+    ...initialSearchParams,
   } as T);
 
   const [total, setTotal] = useState(0);
-
-  const [_, startTransition] = useTransition();
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <need only on mount>
   useEffect(() => {
@@ -76,28 +53,26 @@ export function SearchQueryProvider<T extends IBaseSearchQuery>({
       }
 
       const updatedFilters = { ...searchQuery, ...newFilters };
-      startTransition(() => {
-        if (syncWithUrl) {
-          // Find the difference between previous and updated filters
-          const changedFilters = (Object.keys(newFilters) as unknown as (keyof T)[]).reduce(
-            (diff, key) => {
-              if (key === "custom") {
-                return diff;
-              }
-              if (!isEqual(prevFilters[key], newFilters[key])) {
-                diff[key] = newFilters[key];
-              }
-              return diff;
-            },
-            {} as Partial<T>
-          );
-          if (syncWithUrl) {
-            setSearchParams(changedFilters);
-          }
-        }
 
-        setSearchQuery(updatedFilters);
-      });
+      if (syncWithUrl) {
+        // Find the difference between previous and updated filters
+        const changedFilters = (Object.keys(newFilters) as unknown as (keyof T)[]).reduce(
+          (diff, key) => {
+            if (key === "custom") {
+              return diff;
+            }
+            if (!isEqual(prevFilters[key], newFilters[key])) {
+              diff[key] = newFilters[key];
+            }
+            return diff;
+          },
+          {} as Partial<T>
+        );
+
+        setSearchParams(changedFilters);
+      }
+
+      setSearchQuery(updatedFilters);
     },
     [searchQuery, syncWithUrl]
   );

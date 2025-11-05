@@ -1,3 +1,6 @@
+// biome-ignore-all lint/a11y/noNoninteractiveElementInteractions: <needed for outside click>
+// biome-ignore-all lint/a11y/useKeyWithClickEvents: <needed for outside click>
+// biome-ignore-all lint/a11y/noStaticElementInteractions: <needed for outside click>
 "use client";
 
 import clsx from "clsx";
@@ -38,12 +41,7 @@ export const Dialog: FC<DialogProps> = ({ open, onClose, children, closedBy = "c
   };
 
   return (
-    <dialog
-      className={clsx("m-auto transition-discrete backdrop:bg-black/80 backdrop:backdrop-blur-sm", className)}
-      closedby={closedBy}
-      onClose={handleClose}
-      ref={ref}
-    >
+    <dialog className={clsx("", className)} closedby={closedBy} onClose={handleClose} ref={ref}>
       {children}
     </dialog>
   );
