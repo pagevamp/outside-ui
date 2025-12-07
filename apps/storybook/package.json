@@ -1,0 +1,39 @@
+{
+  "name": "docs",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build --docs",
+    "preview-storybook": "serve storybook-static",
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "eslint ./stories/*.stories.tsx --max-warnings 0"
+  },
+  "dependencies": {
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "@repo/ui": "*",
+    "@rnt-lib/core": "*"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^4.1.2",
+    "@repo/typescript-config": "*",
+    "@storybook/addon-a11y": "^10.0.5",
+    "@storybook/addon-docs": "^10.0.5",
+    "@storybook/addon-vitest": "^10.0.5",
+    "@storybook/react-vite": "^10.0.5",
+    "@types/node": "catalog:types",
+    "@types/react": "catalog:types",
+    "@types/react-dom": "catalog:types",
+    "@vitejs/plugin-react": "^5.0.4",
+    "globals": "^16.4.0",
+    "storybook": "^10.0.5",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vitest": "^4.0.7",
+    "playwright": "^1.56.1",
+    "@vitest/browser-playwright": "^4.0.7",
+    "@vitest/coverage-v8": "^4.0.7"
+  }
+}

@@ -1,0 +1,70 @@
+@layer base {
+  .rnt-table {
+    width: 50%;
+    table-layout: fixed;
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: 0.75rem;
+      white-space: break-spaces;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      text-align: center;
+    }
+
+    th {
+      text-transform: capitalize;
+      &.sortable {
+        cursor: pointer;
+
+        > * {
+          display: flex;
+          gap: 0.5rem;
+          flex-wrap: nowrap;
+        }
+
+        &.active {
+          filter: brightness(0.8);
+        }
+      }
+
+      .heading-wrapper {
+        text-transform: capitalize;
+      }
+
+      .sort-icon {
+        &.is-asc {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  .rnt-pagination {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+
+    .pagination-buttons {
+      display: flex;
+    }
+
+    .pagination-button {
+      padding: 0.4rem 0.8rem;
+      background: none;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+
+    .pagination-button.active {
+      font-weight: bold;
+    }
+
+    .pagination-ellipsis {
+      padding: 0.4rem 0.8rem;
+    }
+  }
+}

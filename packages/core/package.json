@@ -1,0 +1,87 @@
+{
+  "name": "@rnt-lib/core",
+  "description": "A react component library",
+  "version": "0.0.2-alpha-0.0.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./styles.css": "./dist/assets/core.css",
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/*",
+        "dist/*.d.ts"
+      ]
+    }
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite build --watch",
+    "tsc": "tsc --noEmit",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "bun run vite preview",
+    "prepublishOnly": "bun run build"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "*",
+    "@types/lodash": "catalog:types",
+    "@types/node": "^24.6.0",
+    "@types/react": "catalog:types",
+    "@types/react-dom": "catalog:types",
+    "@vitejs/plugin-react-swc": "^4.1.0",
+    "ajv": "8.17.1",
+    "clsx": "catalog:",
+    "globals": "^16.4.0",
+    "lodash": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "^8.45.0",
+    "vite": "catalog:",
+    "vite-plugin-dts": "catalog:"
+  },
+  "dependencies": {
+    "dialog-closedby-polyfill": "^1.1.0"
+  },
+  "peerDependencies": {
+    "clsx": "catalog:peer",
+    "lodash": "catalog:peer",
+    "react": "catalog:peer",
+    "react-dom": "catalog:peer",
+    "typescript": "catalog:peer"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "keywords": [
+    "next",
+    "react",
+    "ui",
+    "outside",
+    "lib",
+    "rnt"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priossrsth/@react-lib.git"
+  },
+  "bugs": {
+    "url": "https://github.com/priosshrsth/@react-lib/issues"
+  },
+  "homepage": "https://github.com/priosshrsth/@react-lib#readme",
+  "overrides": {
+    "vite": "npm:rolldown-vite@7.1.14"
+  }
+}
